@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cats
+  namespace: catns
+  labels:
+    run: cats
+    app: cats
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: cats
+      app: cats
+  template:
+    metadata:
+      labels:
+        run: cats
+        app: cats
+    spec:
+      containers:
+      - name: cats
+        image: 946401916599.dkr.ecr.us-east-1.amazonaws.com/cats:cat-image
+        

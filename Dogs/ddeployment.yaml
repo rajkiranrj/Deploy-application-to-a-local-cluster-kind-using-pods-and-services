@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dogs
+  namespace: dogns
+  labels:
+    run: dogs
+    app: dogs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: dogs
+      app: dogs
+  template:
+    metadata:
+      labels:
+        run: dogs
+        app: dogs
+    spec:
+      containers:
+      - name: dogs
+        image: 946401916599.dkr.ecr.us-east-1.amazonaws.com/dogs:dog-image
+        
